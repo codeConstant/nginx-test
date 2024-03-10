@@ -27,3 +27,9 @@ jobs:
 
       - name: Build with Gradle Wrapper
         run: ./gradlew build
+
+      - name: Copy jar file to another directory
+        run: sudo cp /home/ubuntu/actions-runner-nginx/_work/reverse/reverse/build/libs/reverse-0.0.1-SNAPSHOT.jar /home/ubuntu/artifact-nginx
+
+      - name: Finally Run the artifact nginx service
+        run: sudo systemctl restart artifact-nginx.service
